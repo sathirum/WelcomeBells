@@ -212,9 +212,9 @@ const Booking = () => {
                   min={getMinDate()}
                   required
                   data-testid="booking-date-input"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                 />
-                <Calendar className="absolute right-3 top-3 text-gray-400" size={24} />
+                <Calendar className="absolute right-3 top-3 text-gray-400 pointer-events-none" size={24} />
               </div>
               {formData.date && isDateBooked(formData.date) && (
                 <p className="text-red-600 mt-2 text-sm" data-testid="date-booked-warning">This date is already booked. Please select another date.</p>
