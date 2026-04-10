@@ -36,19 +36,19 @@ const Checkout = () => {
     e.preventDefault();
     setLoading(true);
     
+    // Create order data outside try block so it's accessible in catch
+    const orderData = {
+      ...formData,
+      items: cart.map(item => ({
+        product_id: item.id,
+        product_name: item.name,
+        quantity: item.quantity,
+        price: item.price
+      })),
+      total: getCartTotal()
+    };
+    
     try {
-      // Create order
-      const orderData = {
-        ...formData,
-        items: cart.map(item => ({
-          product_id: item.id,
-          product_name: item.name,
-          quantity: item.quantity,
-          price: item.price
-        })),
-        total: getCartTotal()
-      };
-      
       const orderResponse = await axios.post(`${API}/orders`, orderData);
       setOrderNumber(orderResponse.data.order_number);
       setTrackingId(orderResponse.data.tracking_id);
