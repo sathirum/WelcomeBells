@@ -63,7 +63,12 @@ const Checkout = () => {
       setStep(2);
     } catch (error) {
       console.error('Error creating order:', error);
-      alert('Failed to create order. Please try again.');
+      console.error('Error details:', error.response?.data || error.message);
+      console.error('API URL:', `${API}/orders`);
+      console.error('Order data:', orderData);
+      
+      const errorMsg = error.response?.data?.detail || error.message || 'Unknown error';
+      alert(`Failed to create order: ${errorMsg}\n\nPlease check console for details.`);
     } finally {
       setLoading(false);
     }

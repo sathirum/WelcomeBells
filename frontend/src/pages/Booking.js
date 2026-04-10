@@ -74,10 +74,15 @@ const Booking = () => {
       setTimeout(() => setSuccess(false), 5000);
     } catch (error) {
       console.error('Error creating booking:', error);
+      console.error('Error details:', error.response?.data || error.message);
+      console.error('API URL:', `${API}/bookings`);
+      console.error('Form data:', formData);
+      
       if (error.response && error.response.status === 400) {
         alert('This date is already booked. Please select another date.');
       } else {
-        alert('Failed to create booking. Please try again.');
+        const errorMsg = error.response?.data?.detail || error.message || 'Unknown error';
+        alert(`Failed to create booking: ${errorMsg}\n\nPlease check console for details.`);
       }
     } finally {
       setLoading(false);

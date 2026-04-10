@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Bells - API Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>Welcome Bells API Test</h1>
+    
+    <h2>Test Booking API</h2>
+    <button onclick="testBooking()">Test Booking</button>
+    <div id="booking-result"></div>
+    
+    <h2>Test Order API</h2>
+    <button onclick="testOrder()">Test Order</button>
+    <div id="order-result"></div>
+    
+    <script>
+        const BACKEND_URL = window.location.origin;
+        const API = `${BACKEND_URL}/api`;
+        
+        console.log('Backend URL:', BACKEND_URL);
+        console.log('API URL:', API);
+        
+        async function testBooking() {
+            const resultDiv = document.getElementById('booking-result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            try {
+                const response = await axios.post(`${API}/bookings`, {
+                    customer_name: "Test User",
+                    phone: "9876543210",
+                    email: "test@test.com",
+                    service: "trousseau_packing",
+                    date: "2026-06-15",
+                    notes: "Test booking from browser"
+                });
+                
+                resultDiv.innerHTML = `<pre style="color: green;">SUCCESS!\n${JSON.stringify(response.data, null, 2)}</pre>`;
+                console.log('Booking success:', response.data);
+            } catch (error) {
+                resultDiv.innerHTML = `<pre style="color: red;">ERROR!\n${JSON.stringify(error.response?.data || error.message, null, 2)}</pre>`;
+                console.error('Booking error:', error);
+            }
+        }
+        
+        async function testOrder() {
+            const resultDiv = document.getElementById('order-result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            try {
+                const response = await axios.post(`${API}/orders`, {
+                    customer_name: "Test User",
+                    phone: "9876543210",
+                    email: "test@test.com",
+                    items: [{
+                        product_id: "test123",
+                        product_name: "Test Product",
+                        quantity: 1,
+                        price: 500
+                    }],
+                    total: 500,
+                    address: "Test Address, Chennai"
+                });
+                
+                resultDiv.innerHTML = `<pre style="color: green;">SUCCESS!\n${JSON.stringify(response.data, null, 2)}</pre>`;
+                console.log('Order success:', response.data);
+            } catch (error) {
+                resultDiv.innerHTML = `<pre style="color: red;">ERROR!\n${JSON.stringify(error.response?.data || error.message, null, 2)}</pre>`;
+                console.error('Order error:', error);
+            }
+        }
+    </script>
+</body>
+</html>
