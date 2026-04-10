@@ -700,9 +700,27 @@ const GalleryManagement = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {gallery.map(item => (
           <div key={item.id} className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div className="aspect-square bg-gradient-to-br from-pink-200 to-rose-200 relative">
+            <div className="aspect-square bg-gradient-to-br from-pink-200 to-rose-200 relative overflow-hidden">
+              {item.type === 'image' ? (
+                <img 
+                  src={item.url} 
+                  alt={item.title || 'Gallery item'}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+              ) : (
+                <video 
+                  src={item.url}
+                  className="w-full h-full object-cover"
+                  muted
+                >
+                  Your browser does not support the video tag.
+                </video>
+              )}
               {item.type === 'video' && (
-                <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="bg-white bg-opacity-80 rounded-full p-3">
                     <Image size={32} className="text-pink-600" />
                   </div>

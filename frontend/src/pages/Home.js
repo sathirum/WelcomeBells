@@ -118,9 +118,27 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {gallery.map((item) => (
                 <div key={item.id} className="aspect-video bg-gray-200 rounded-2xl shadow-lg overflow-hidden" data-testid="gallery-video-item">
-                  <div className="w-full h-full flex items-center justify-center text-gray-500">
-                    Video: {item.title || 'Gallery Item'}
-                  </div>
+                  {item.type === 'video' ? (
+                    <video 
+                      src={item.url}
+                      className="w-full h-full object-cover"
+                      controls
+                      onError={(e) => {
+                        console.error('Video load error:', item.url);
+                      }}
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : (
+                    <img 
+                      src={item.url} 
+                      alt={item.title || 'Gallery item'}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                  )}
                 </div>
               ))}
             </div>

@@ -127,13 +127,40 @@ const Gallery = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-testid="gallery-grid">
             {filteredGallery.map((item) => (
               <div key={item.id} className="group relative aspect-square bg-gradient-to-br from-pink-200 to-rose-200 rounded-2xl shadow-lg overflow-hidden cursor-pointer" data-testid={`gallery-item-${item.id}`}>
+                {/* Display Image or Video */}
+                {item.type === 'image' ? (
+                  <img 
+                    src={item.url} 
+                    alt={item.title || 'Gallery item'}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      console.error('Image load error:', item.url);
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                ) : (
+                  <video 
+                    src={item.url}
+                    className="w-full h-full object-cover"
+                    controls
+                    onError={(e) => {
+                      console.error('Video load error:', item.url);
+                    }}
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                )}
+                
+                {/* Play icon overlay for videos */}
                 {item.type === 'video' && (
-                  <div className="absolute inset-0 flex items-center justify-center z-10">
+                  <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
                     <div className="bg-white bg-opacity-80 rounded-full p-4 group-hover:bg-opacity-100 transition-all">
                       <Play size={32} className="text-pink-600" />
                     </div>
                   </div>
                 )}
+                
+                {/* Info overlay */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity">
                   <p className="text-white font-semibold">{item.title || 'Gallery Item'}</p>
                   {item.category && (
