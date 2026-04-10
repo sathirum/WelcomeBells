@@ -1,5 +1,6 @@
 from fastapi import FastAPI, APIRouter, HTTPException, Depends, UploadFile, File, Form, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from fastapi.staticfiles import StaticFiles
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -16,6 +17,7 @@ import qrcode
 import io
 import base64
 from enum import Enum
+import shutil
 
 
 ROOT_DIR = Path(__file__).parent
@@ -30,6 +32,10 @@ db = client[os.environ['DB_NAME']]
 SECRET_KEY = os.environ.get('JWT_SECRET_KEY', 'your-secret-key-change-in-production')
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 1440  # 24 hours
+
+# Upload directory
+UPLOAD_DIR = Path("/app/frontend/public/uploads")
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 # Create the main app
 app = FastAPI()
@@ -473,6 +479,33 @@ async def admin_login(login: AdminLogin):
         "token_type": "bearer",
         "username": admin['username']
     }
+
+
+# File Upload Endpoint
+@api_router.post("/admin/upload")
+async def upload_file(file: UploadFile = File(...), token_data: dict = Depends(verify_token)):
+    """Upload image or video file"""
+    try:
+        # Generate unique filename
+        file_extension = Path(file.filename).suffix
+        unique_filename = f"{uuid.uuid4()}{file_extension}"
+        file_path = UPLOAD_DIR / unique_filename
+        
+        # Save file
+        with open(file_path, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+        
+        # Return URL that frontend can access
+        file_url = f"/uploads/{unique_filename}"
+        
+        return {
+            "success": True,
+            "url": file_url,
+            "filename": unique_filename
+        }
+    except Exception as e:
+        logger.error(f"File upload error: {str(e)}")
+        raise HTTPException(status_code=500, detail="File upload failed")
 
 
 # Admin Products

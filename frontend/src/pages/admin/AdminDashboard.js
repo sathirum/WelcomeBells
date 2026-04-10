@@ -63,6 +63,7 @@ const ProductsManagement = () => {
   const [products, setProducts] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
+  const [uploading, setUploading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     category: 'trousseau_packing',
@@ -72,6 +73,7 @@ const ProductsManagement = () => {
     images: '',
     featured: false
   });
+  const [selectedFile, setSelectedFile] = useState(null);
   
   useEffect(() => {
     fetchProducts();
@@ -88,12 +90,35 @@ const ProductsManagement = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setUploading(true);
+    
     try {
+      let imageUrl = formData.images;
+      
+      // Upload file if selected
+      if (selectedFile) {
+        const uploadFormData = new FormData();
+        uploadFormData.append('file', selectedFile);
+        
+        const uploadResponse = await axios.post(
+          `${API}/admin/upload`,
+          uploadFormData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+              'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
+            }
+          }
+        );
+        
+        imageUrl = uploadResponse.data.url;
+      }
+      
       const data = {
         ...formData,
         price: parseFloat(formData.price),
         stock: parseInt(formData.stock),
-        images: formData.images ? [formData.images] : []
+        images: imageUrl ? [imageUrl] : []
       };
       
       if (editingProduct) {
@@ -108,6 +133,8 @@ const ProductsManagement = () => {
     } catch (error) {
       console.error('Error saving product:', error);
       alert('Failed to save product');
+    } finally {
+      setUploading(false);
     }
   };
   
@@ -147,6 +174,7 @@ const ProductsManagement = () => {
       images: '',
       featured: false
     });
+    setSelectedFile(null);
     setEditingProduct(null);
     setShowForm(false);
   };
@@ -209,17 +237,26 @@ const ProductsManagement = () => {
                   ></textarea>
                 </div>
                 <div>
-                  <label className="block font-semibold mb-2">Product Image URL</label>
+                  <label className="block font-semibold mb-2">Product Image</label>
                   <input
-                    type="url"
-                    value={formData.images}
-                    onChange={(e) => setFormData({...formData, images: e.target.value})}
-                    placeholder="https://example.com/product-image.jpg"
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => setSelectedFile(e.target.files[0])}
                     className="w-full px-4 py-2 border rounded-lg"
                   />
                   <p className="text-sm text-gray-500 mt-1">
-                    Upload your product image to Google Drive, Instagram, or any image host, then paste the URL here
+                    Upload a product image (JPG, PNG, WebP)
                   </p>
+                  {selectedFile && (
+                    <p className="text-sm text-green-600 mt-2">
+                      ✓ Selected: {selectedFile.name}
+                    </p>
+                  )}
+                  {formData.images && !selectedFile && (
+                    <p className="text-sm text-gray-600 mt-2">
+                      Current image: {formData.images}
+                    </p>
+                  )}
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
@@ -257,8 +294,8 @@ const ProductsManagement = () => {
                 </div>
               </div>
               <div className="mt-6 flex space-x-4">
-                <button type="submit" className="flex-1 bg-pink-600 text-white py-3 rounded-lg font-bold">
-                  {editingProduct ? 'Update' : 'Create'} Product
+                <button type="submit" disabled={uploading} className="flex-1 bg-pink-600 text-white py-3 rounded-lg font-bold disabled:opacity-50">
+                  {uploading ? 'Uploading...' : editingProduct ? 'Update Product' : 'Create Product'}
                 </button>
                 <button type="button" onClick={resetForm} className="flex-1 bg-gray-300 py-3 rounded-lg font-bold">
                   Cancel
@@ -478,6 +515,8 @@ const BookingsManagement = () => {
 const GalleryManagement = () => {
   const [gallery, setGallery] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
   const [formData, setFormData] = useState({
     type: 'image',
     url: '',
@@ -500,14 +539,44 @@ const GalleryManagement = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setUploading(true);
+    
     try {
-      await axios.post(`${API}/admin/gallery`, formData, getAuthHeaders());
+      let mediaUrl = formData.url;
+      
+      // Upload file if selected
+      if (selectedFile) {
+        const uploadFormData = new FormData();
+        uploadFormData.append('file', selectedFile);
+        
+        const uploadResponse = await axios.post(
+          `${API}/admin/upload`,
+          uploadFormData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+              'Authorization': `Bearer ${localStorage.getItem('admin_token')}`
+            }
+          }
+        );
+        
+        mediaUrl = uploadResponse.data.url;
+      }
+      
+      const data = {
+        ...formData,
+        url: mediaUrl
+      };
+      
+      await axios.post(`${API}/admin/gallery`, data, getAuthHeaders());
       fetchGallery();
       resetForm();
       alert('Gallery item added successfully!');
     } catch (error) {
       console.error('Error adding gallery item:', error);
       alert('Failed to add gallery item');
+    } finally {
+      setUploading(false);
     }
   };
   
@@ -525,6 +594,7 @@ const GalleryManagement = () => {
   
   const resetForm = () => {
     setFormData({ type: 'image', url: '', category: '', title: '' });
+    setSelectedFile(null);
     setShowForm(false);
   };
   
@@ -563,18 +633,30 @@ const GalleryManagement = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block font-semibold mb-2">Image/Video URL *</label>
+                  <label className="block font-semibold mb-2">Upload Image/Video *</label>
                   <input
-                    type="url"
-                    value={formData.url}
-                    onChange={(e) => setFormData({...formData, url: e.target.value})}
-                    placeholder="https://example.com/image.jpg"
-                    required
+                    type="file"
+                    accept="image/*,video/*"
+                    onChange={(e) => {
+                      const file = e.target.files[0];
+                      setSelectedFile(file);
+                      // Auto-detect type based on file
+                      if (file) {
+                        const fileType = file.type.startsWith('video/') ? 'video' : 'image';
+                        setFormData({...formData, type: fileType});
+                      }
+                    }}
+                    required={!formData.url}
                     className="w-full px-4 py-2 border rounded-lg"
                   />
                   <p className="text-sm text-gray-500 mt-1">
-                    Upload your image/video to Instagram, Google Drive, or any image host, then paste the URL here
+                    Upload an image (JPG, PNG) or video (MP4, MOV) file
                   </p>
+                  {selectedFile && (
+                    <p className="text-sm text-green-600 mt-2">
+                      ✓ Selected: {selectedFile.name} ({formData.type})
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label className="block font-semibold mb-2">Title</label>
@@ -603,8 +685,8 @@ const GalleryManagement = () => {
                 </div>
               </div>
               <div className="mt-6 flex space-x-4">
-                <button type="submit" className="flex-1 bg-pink-600 text-white py-3 rounded-lg font-bold">
-                  Add to Gallery
+                <button type="submit" disabled={uploading} className="flex-1 bg-pink-600 text-white py-3 rounded-lg font-bold disabled:opacity-50">
+                  {uploading ? 'Uploading...' : 'Add to Gallery'}
                 </button>
                 <button type="button" onClick={resetForm} className="flex-1 bg-gray-300 py-3 rounded-lg font-bold">
                   Cancel
