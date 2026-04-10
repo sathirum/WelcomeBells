@@ -41,8 +41,12 @@ const AdminLogin = () => {
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-rose-50 flex items-center justify-center py-12 px-4" data-testid="admin-login-page">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">
-            WB
+          <div className="mx-auto mb-4 flex justify-center">
+            <img 
+              src="https://customer-assets.emergentagent.com/job_welcome-bells/artifacts/ug291yyv_image.png" 
+              alt="Welcome Bells Logo" 
+              className="h-24 w-auto object-contain"
+            />
           </div>
           <h1 className="text-4xl font-bold gradient-text mb-2" data-testid="admin-login-title">Admin Login</h1>
           <p className="text-gray-600">Welcome Bells Dashboard</p>

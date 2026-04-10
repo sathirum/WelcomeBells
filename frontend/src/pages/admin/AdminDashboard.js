@@ -485,14 +485,13 @@ const AdminDashboard = () => {
       {/* Sidebar */}
       <div className="w-64 bg-gradient-to-br from-pink-600 to-rose-600 text-white">
         <div className="p-6">
-          <div className="flex items-center space-x-3 mb-8">
-            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-pink-600 font-bold text-xl">
-              WB
-            </div>
-            <div>
-              <h2 className="font-bold text-lg">Welcome Bells</h2>
-              <p className="text-sm opacity-80">Admin Panel</p>
-            </div>
+          <div className="mb-8">
+            <img 
+              src="https://customer-assets.emergentagent.com/job_welcome-bells/artifacts/ug291yyv_image.png" 
+              alt="Welcome Bells Logo" 
+              className="h-20 w-auto object-contain mb-2 bg-white rounded-lg p-2"
+            />
+            <p className="text-sm opacity-80 text-center">Admin Panel</p>
           </div>
           
           <nav className="space-y-2">

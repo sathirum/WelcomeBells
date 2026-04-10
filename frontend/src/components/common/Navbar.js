@@ -27,13 +27,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2" data-testid="nav-logo">
-            <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-              WB
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold gradient-text">Welcome Bells</h1>
-              <p className="text-xs text-gray-600">Trousseau & Gifting</p>
-            </div>
+            <img 
+              src="https://customer-assets.emergentagent.com/job_welcome-bells/artifacts/ug291yyv_image.png" 
+              alt="Welcome Bells Logo" 
+              className="h-16 w-auto object-contain"
+            />
           </Link>
           
           {/* Desktop Navigation */}

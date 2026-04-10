@@ -9,14 +9,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About Section */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                WB
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold">Welcome Bells</h3>
-                <p className="text-sm text-gray-400">Trousseau & Gifting Specialists</p>
-              </div>
+            <div className="mb-4">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_welcome-bells/artifacts/ug291yyv_image.png" 
+                alt="Welcome Bells Logo" 
+                className="h-24 w-auto object-contain mb-2"
+              />
             </div>
             <p className="text-gray-300 mb-4 max-w-md">
               Creating beautiful memories with our premium trousseau packing, gift hampers, bouquets, and return gifts. Making every occasion special since our inception.
