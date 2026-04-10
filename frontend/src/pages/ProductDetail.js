@@ -71,7 +71,18 @@ const ProductDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Image */}
           <div>
-            <div className="aspect-square bg-gradient-to-br from-pink-200 to-rose-200 rounded-3xl shadow-2xl"></div>
+            <div className="aspect-square bg-gradient-to-br from-pink-200 to-rose-200 rounded-3xl shadow-2xl overflow-hidden">
+              {product.images && product.images.length > 0 ? (
+                <img 
+                  src={product.images[0]} 
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+              ) : null}
+            </div>
           </div>
           
           {/* Product Info */}

@@ -69,6 +69,7 @@ const ProductsManagement = () => {
     description: '',
     price: '',
     stock: '',
+    images: '',
     featured: false
   });
   
@@ -92,7 +93,7 @@ const ProductsManagement = () => {
         ...formData,
         price: parseFloat(formData.price),
         stock: parseInt(formData.stock),
-        images: []
+        images: formData.images ? [formData.images] : []
       };
       
       if (editingProduct) {
@@ -130,6 +131,7 @@ const ProductsManagement = () => {
       description: product.description,
       price: product.price.toString(),
       stock: product.stock.toString(),
+      images: product.images && product.images.length > 0 ? product.images[0] : '',
       featured: product.featured
     });
     setShowForm(true);
@@ -142,6 +144,7 @@ const ProductsManagement = () => {
       description: '',
       price: '',
       stock: '',
+      images: '',
       featured: false
     });
     setEditingProduct(null);
@@ -205,6 +208,19 @@ const ProductsManagement = () => {
                     className="w-full px-4 py-2 border rounded-lg"
                   ></textarea>
                 </div>
+                <div>
+                  <label className="block font-semibold mb-2">Product Image URL</label>
+                  <input
+                    type="url"
+                    value={formData.images}
+                    onChange={(e) => setFormData({...formData, images: e.target.value})}
+                    placeholder="https://example.com/product-image.jpg"
+                    className="w-full px-4 py-2 border rounded-lg"
+                  />
+                  <p className="text-sm text-gray-500 mt-1">
+                    Upload your product image to Google Drive, Instagram, or any image host, then paste the URL here
+                  </p>
+                </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block font-semibold mb-2">Price (₹)</label>
@@ -257,6 +273,7 @@ const ProductsManagement = () => {
         <table className="w-full">
           <thead className="bg-gray-50">
             <tr>
+              <th className="px-6 py-3 text-left">Image</th>
               <th className="px-6 py-3 text-left">Product</th>
               <th className="px-6 py-3 text-left">Category</th>
               <th className="px-6 py-3 text-left">Price</th>
@@ -268,6 +285,13 @@ const ProductsManagement = () => {
           <tbody>
             {products.map(product => (
               <tr key={product.id} className="border-t">
+                <td className="px-6 py-4">
+                  {product.images && product.images.length > 0 ? (
+                    <img src={product.images[0]} alt={product.name} className="w-16 h-16 object-cover rounded-lg" />
+                  ) : (
+                    <div className="w-16 h-16 bg-gradient-to-br from-pink-200 to-rose-200 rounded-lg"></div>
+                  )}
+                </td>
                 <td className="px-6 py-4 font-semibold">{product.name}</td>
                 <td className="px-6 py-4">{product.category.replace(/_/g, ' ')}</td>
                 <td className="px-6 py-4">₹{product.price}</td>

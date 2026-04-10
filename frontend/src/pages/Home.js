@@ -142,7 +142,18 @@ const Home = () => {
               {featuredProducts.map((product) => (
                 <Link key={product.id} to={`/products/${product.id}`} data-testid={`featured-product-${product.id}`}>
                   <div className="product-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                    <div className="aspect-square bg-gradient-to-br from-pink-200 to-rose-200"></div>
+                    <div className="aspect-square bg-gradient-to-br from-pink-200 to-rose-200 overflow-hidden">
+                      {product.images && product.images.length > 0 ? (
+                        <img 
+                          src={product.images[0]} 
+                          alt={product.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                          }}
+                        />
+                      ) : null}
+                    </div>
                     <div className="p-4">
                       <span className="category-badge">{product.category.replace('_', ' ')}</span>
                       <h3 className="text-lg font-bold mt-2 mb-1">{product.name}</h3>

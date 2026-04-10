@@ -112,7 +112,17 @@ const Products = () => {
             {filteredProducts.map((product) => (
               <div key={product.id} className="product-card bg-white rounded-2xl shadow-lg overflow-hidden" data-testid={`product-card-${product.id}`}>
                 <Link to={`/products/${product.id}`}>
-                  <div className="aspect-square bg-gradient-to-br from-pink-200 to-rose-200 relative">
+                  <div className="aspect-square bg-gradient-to-br from-pink-200 to-rose-200 relative overflow-hidden">
+                    {product.images && product.images.length > 0 ? (
+                      <img 
+                        src={product.images[0]} 
+                        alt={product.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                    ) : null}
                     {product.featured && (
                       <span className="absolute top-3 right-3 bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-xs font-bold">
                         Featured
