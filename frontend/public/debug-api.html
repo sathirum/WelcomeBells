@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Bells - Detailed Debug</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        button { padding: 10px 20px; margin: 10px; cursor: pointer; }
+        .result { margin: 20px 0; padding: 15px; border-radius: 5px; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; }
+        pre { white-space: pre-wrap; word-wrap: break-word; }
+    </style>
+</head>
+<body>
+    <h1>Welcome Bells - Detailed API Debugging</h1>
+    
+    <h2>Step 1: Check Backend URL</h2>
+    <div id="url-check" class="result"></div>
+    
+    <h2>Step 2: Test Booking API</h2>
+    <button onclick="testBooking()">Test Booking API</button>
+    <div id="booking-result" class="result"></div>
+    
+    <h2>Step 3: Test Order API</h2>
+    <button onclick="testOrder()">Test Order API</button>
+    <div id="order-result" class="result"></div>
+    
+    <script>
+        // Check URLs
+        const BACKEND_URL = window.location.origin;
+        const API = `${BACKEND_URL}/api`;
+        
+        document.getElementById('url-check').innerHTML = `
+            <strong>Backend URL:</strong> ${BACKEND_URL}<br>
+            <strong>API Endpoint:</strong> ${API}
+        `;
+        
+        async function testBooking() {
+            const resultDiv = document.getElementById('booking-result');
+            resultDiv.innerHTML = '<strong>Testing...</strong>';
+            resultDiv.className = 'result';
+            
+            const testData = {
+                customer_name: "Debug Test User",
+                phone: "9876543210",
+                email: "debug@test.com",
+                service: "trousseau_packing",
+                date: "2026-06-15",
+                notes: "Debug test booking"
+            };
+            
+            console.log('=== BOOKING TEST ===');
+            console.log('API URL:', `${API}/bookings`);
+            console.log('Request Data:', testData);
+            
+            try {
+                const response = await axios.post(`${API}/bookings`, testData);
+                
+                console.log('SUCCESS Response:', response);
+                console.log('Response Data:', response.data);
+                
+                resultDiv.className = 'result success';
+                resultDiv.innerHTML = `
+                    <h3>✅ SUCCESS!</h3>
+                    <strong>Booking Number:</strong> ${response.data.booking_number}<br>
+                    <strong>Booking ID:</strong> ${response.data.id}<br>
+                    <strong>Status:</strong> ${response.data.status}<br>
+                    <pre>${JSON.stringify(response.data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                console.error('ERROR in booking:', error);
+                console.error('Error Response:', error.response);
+                console.error('Error Response Data:', error.response?.data);
+                console.error('Error Message:', error.message);
+                
+                let errorDetails = '';
+                if (error.response) {
+                    errorDetails = `
+                        <strong>Status:</strong> ${error.response.status}<br>
+                        <strong>Status Text:</strong> ${error.response.statusText}<br>
+                        <strong>Response Data:</strong><br>
+                        <pre>${JSON.stringify(error.response.data, null, 2)}</pre>
+                    `;
+                } else {
+                    errorDetails = `<strong>Error Message:</strong> ${error.message}`;
+                }
+                
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `
+                    <h3>❌ FAILED!</h3>
+                    ${errorDetails}
+                    <strong>Full Error:</strong><br>
+                    <pre>${JSON.stringify(error, null, 2)}</pre>
+                `;
+            }
+        }
+        
+        async function testOrder() {
+            const resultDiv = document.getElementById('order-result');
+            resultDiv.innerHTML = '<strong>Testing...</strong>';
+            resultDiv.className = 'result';
+            
+            const testData = {
+                customer_name: "Debug Test User",
+                phone: "9876543210",
+                email: "debug@test.com",
+                items: [{
+                    product_id: "test-123",
+                    product_name: "Debug Test Product",
+                    quantity: 1,
+                    price: 500
+                }],
+                total: 500,
+                address: "123 Debug Street, Test City"
+            };
+            
+            console.log('=== ORDER TEST ===');
+            console.log('API URL:', `${API}/orders`);
+            console.log('Request Data:', testData);
+            
+            try {
+                const response = await axios.post(`${API}/orders`, testData);
+                
+                console.log('SUCCESS Response:', response);
+                console.log('Response Data:', response.data);
+                
+                resultDiv.className = 'result success';
+                resultDiv.innerHTML = `
+                    <h3>✅ SUCCESS!</h3>
+                    <strong>Order Number:</strong> ${response.data.order_number}<br>
+                    <strong>Tracking ID:</strong> ${response.data.tracking_id}<br>
+                    <strong>Order ID:</strong> ${response.data.id}<br>
+                    <pre>${JSON.stringify(response.data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                console.error('ERROR in order:', error);
+                console.error('Error Response:', error.response);
+                console.error('Error Response Data:', error.response?.data);
+                console.error('Error Message:', error.message);
+                
+                let errorDetails = '';
+                if (error.response) {
+                    errorDetails = `
+                        <strong>Status:</strong> ${error.response.status}<br>
+                        <strong>Status Text:</strong> ${error.response.statusText}<br>
+                        <strong>Response Data:</strong><br>
+                        <pre>${JSON.stringify(error.response.data, null, 2)}</pre>
+                    `;
+                } else {
+                    errorDetails = `<strong>Error Message:</strong> ${error.message}`;
+                }
+                
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = `
+                    <h3>❌ FAILED!</h3>
+                    ${errorDetails}
+                    <strong>Full Error:</strong><br>
+                    <pre>${JSON.stringify(error, null, 2)}</pre>
+                `;
+            }
+        }
+        
+        // Auto-run tests on load
+        console.log('Debug page loaded. URLs configured:');
+        console.log('BACKEND_URL:', BACKEND_URL);
+        console.log('API:', API);
+    </script>
+</body>
+</html>
