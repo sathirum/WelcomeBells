@@ -204,10 +204,10 @@ class Settings(BaseModel):
     id: str = "settings"
     upi_id: str = "welcomebells@upi"
     business_name: str = "Welcome Bells"
-    phone: str = "+91 9876543210"
+    phone: str = "+91 7904067684"
     email: str = "info@welcomebells.com"
     address: str = "Chennai, Tamil Nadu"
-    whatsapp_number: str = "+919876543210"
+    whatsapp_number: str = "+917904067684"
     about_us: str = "Welcome to Welcome Bells - Your trusted partner for Trousseau Packing, Gift Hampers, and more!"
 
 
@@ -239,6 +239,11 @@ class ContactMessage(BaseModel):
     phone: str
     email: Optional[EmailStr] = None
     message: str
+
+
+class UPIQRRequest(BaseModel):
+    order_number: str
+    amount: float
 
 
 class OrderStatusUpdate(BaseModel):
@@ -451,19 +456,29 @@ async def get_public_settings():
     return settings
 
 
+# Pydantic model for UPI QR request
+class UPIQRRequest(BaseModel):
+    order_number: str
+    amount: float
+
+
 # Generate UPI QR
 @api_router.post("/generate-upi-qr")
-async def generate_upi_qr_code(order_number: str, amount: float):
-    settings = await db.settings.find_one({"id": "settings"})
-    if not settings:
-        settings = Settings().model_dump()
-    
-    qr_code = generate_upi_qr(settings['upi_id'], amount, settings['business_name'])
-    return {
-        "qr_code": qr_code,
-        "upi_id": settings['upi_id'],
-        "amount": amount
-    }
+async def generate_upi_qr_code(request: UPIQRRequest):
+    try:
+        settings = await db.settings.find_one({"id": "settings"})
+        if not settings:
+            settings = Settings().model_dump()
+        
+        qr_code = generate_upi_qr(settings['upi_id'], request.amount, settings['business_name'])
+        return {
+            "qr_code": qr_code,
+            "upi_id": settings['upi_id'],
+            "amount": request.amount
+        }
+    except Exception as e:
+        logger.error(f"Error generating UPI QR: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to generate QR code: {str(e)}")
 
 
 # ==================== ADMIN ENDPOINTS ====================

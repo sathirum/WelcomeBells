@@ -990,7 +990,7 @@ const SettingsManagement = () => {
                   type="tel"
                   value={formData.whatsapp_number}
                   onChange={(e) => setFormData({...formData, whatsapp_number: e.target.value})}
-                  placeholder="+919876543210"
+                  placeholder="+917904067684"
                   className="w-full px-4 py-2 border rounded-lg"
                 />
               </div>

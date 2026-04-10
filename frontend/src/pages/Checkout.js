@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useCart } from '@/contexts/CartContext';
 import { CheckCircle } from 'lucide-react';
 import axios from 'axios';
+import { useEffect } from 'react';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -23,10 +24,12 @@ const Checkout = () => {
   const [trackingId, setTrackingId] = useState('');
   const [loading, setLoading] = useState(false);
   
+  useEffect(() => {
   if (cart.length === 0 && step === 1) {
     navigate('/cart');
     return null;
   }
+ }, [cart, navigate]);
   
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -57,6 +60,7 @@ const Checkout = () => {
       const qrResponse = await axios.post(`${API}/generate-upi-qr`, {
         order_number: orderResponse.data.order_number,
         amount: getCartTotal()
+        //amount: orderData.total
       });
       
       setQrData(qrResponse.data);

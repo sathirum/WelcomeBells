@@ -60,8 +60,8 @@ const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-1">Phone</h3>
-                  <a href="tel:+919876543210" className="text-gray-600 hover:text-pink-600" data-testid="contact-phone">
-                    +91 98765 43210
+                  <a href="tel:+917904067684" className="text-gray-600 hover:text-pink-600" data-testid="contact-phone">
+                    +91 79040 67684
                   </a>
                 </div>
               </div>
@@ -92,7 +92,7 @@ const Contact = () => {
             {/* Quick Actions */}
             <div className="mt-8 space-y-4">
               <a
-                href="https://wa.me/919876543210?text=Hello%20Welcome%20Bells!%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                href="https://wa.me/917904067684?text=Hello%20Welcome%20Bells!%20I%20would%20like%20to%20inquire%20about%20your%20services."
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="whatsapp-button"
@@ -102,7 +102,7 @@ const Contact = () => {
               </a>
               
               <a
-                href="tel:+919876543210"
+                href="tel:+917904067684"
                 data-testid="call-button"
                 className="block w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold py-4 px-6 rounded-xl text-center transition-all duration-300 shadow-lg"
               >

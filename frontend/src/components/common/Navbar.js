@@ -67,7 +67,7 @@ const Navbar = () => {
             
             {/* WhatsApp Button */}
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/917904067684"
               target="_blank"
               rel="noopener noreferrer"
               data-testid="nav-whatsapp-button"
@@ -116,7 +116,7 @@ const Navbar = () => {
               </Link>
             ))}
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/917904067684"
               target="_blank"
               rel="noopener noreferrer"
               className="block py-3 px-4 bg-green-500 text-white text-center rounded-lg mt-2"
