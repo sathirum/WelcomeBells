@@ -1082,9 +1082,10 @@ const AdminDashboard = () => {
         <div className="p-6">
           <div className="mb-8">
             <img 
-              src="https://customer-assets.emergentagent.com/job_welcome-bells/artifacts/ug291yyv_image.png" 
+              //src="https://customer-assets.emergentagent.com/job_welcome-bells/artifacts/ug291yyv_image.png" 
+              src="/logo.png"
               alt="Welcome Bells Logo" 
-              className="h-20 w-auto object-contain mb-2 bg-white rounded-lg p-2"
+              className="h-28 w-auto object-contain mb-2 bg-white rounded-lg p-2"
             />
             <p className="text-sm opacity-80 text-center">Admin Panel</p>
           </div>

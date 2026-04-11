@@ -28,9 +28,10 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2" data-testid="nav-logo">
             <img 
-              src="https://customer-assets.emergentagent.com/job_welcome-bells/artifacts/ug291yyv_image.png" 
+              //src="https://customer-assets.emergentagent.com/job_welcome-bells/artifacts/ug291yyv_image.png" 
+              src="/logo.png"
               alt="Welcome Bells Logo" 
-              className="h-16 w-auto object-contain"
+              className="h-24 w-auto object-contain"
             />
           </Link>
           

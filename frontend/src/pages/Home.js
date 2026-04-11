@@ -72,10 +72,18 @@ const Home = () => {
             <div className="relative">
               <div className="aspect-square bg-gradient-to-br from-pink-200 to-rose-200 rounded-full opacity-20 absolute inset-0 animate-pulse"></div>
               <div className="relative z-10 grid grid-cols-2 gap-4">
-                <div className="aspect-square bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl shadow-xl"></div>
-                <div className="aspect-square bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl shadow-xl mt-8"></div>
-                <div className="aspect-square bg-gradient-to-br from-rose-500 to-pink-500 rounded-2xl shadow-xl -mt-8"></div>
-                <div className="aspect-square bg-gradient-to-br from-pink-500 to-purple-500 rounded-2xl shadow-xl"></div>
+                <div className="aspect-square bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl shadow-xl overflow-hidden p-3">
+                <img src="/uploads/Image1.jpeg" alt="Tile 1" className="w-full h-full object-cover rounded-xl" />
+                </div>
+                <div className="aspect-square bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl shadow-xl overflow-hidden mt-8 p-3">
+                <img src="/uploads/Image2.jpeg" alt="Tile 2" className="w-full h-full object-cover rounded-xl" />
+                </div>
+                <div className="aspect-square bg-gradient-to-br from-rose-500 to-pink-500 rounded-2xl shadow-xl overflow-hidden -mt-8 p-3">
+                <img src="/uploads/Image3.jpeg" alt="Tile 3" className="w-full h-full object-cover rounded-xl" />
+                </div>
+                <div className="aspect-square bg-gradient-to-br from-pink-500 to-purple-500 rounded-2xl shadow-xl overflow-hidden p-3">
+                <img src="/uploads/Image4.jpeg" alt="Tile 4" className="w-full h-full object-cover rounded-xl" />
+              </div>
               </div>
             </div>
           </div>

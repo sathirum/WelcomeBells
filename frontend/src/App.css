@@ -1,3 +1,5 @@
+
+
 /* Welcome Bells - Main Styles */
 
 .App {
@@ -10,71 +12,72 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #FDF6E3;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ec4899;
+  background: #7B1147;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #db2777;
+  background: #4A0A2E;
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
-.animate-fadeIn {
-  animation: fadeIn 0.6s ease-out;
-}
+.animate-fadeIn { animation: fadeIn 0.6s ease-out; }
 
 @keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
-
-.animate-slideIn {
-  animation: slideIn 0.5s ease-out;
-}
+.animate-slideIn { animation: slideIn 0.5s ease-out; }
 
 /* Product card hover effect */
-.product-card {
-  transition: all 0.3s ease;
-}
-
+.product-card { transition: all 0.3s ease; }
 .product-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(236, 72, 153, 0.2);
+  box-shadow: 0 20px 40px rgba(201, 150, 61, 0.25);
 }
 
 /* Button styles */
 .btn-primary {
-  @apply bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105;
+  background: linear-gradient(135deg, #7B1147 0%, #4A0A2E 100%);
+  color: #E8C97A;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(74, 10, 46, 0.3);
+  transition: all 0.3s ease;
+  transform: scale(1);
+  border: none;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #4A0A2E 0%, #7B1147 100%);
+  transform: scale(1.05);
 }
 
 .btn-secondary {
-  @apply bg-white text-pink-600 border-2 border-pink-500 hover:bg-pink-50 font-semibold py-3 px-6 rounded-lg transition-all duration-300;
+  background: #FDF6E3;
+  color: #7B1147;
+  border: 2px solid #C9963D;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+  background: #E8C97A;
+  color: #4A0A2E;
 }
 
 /* Hero gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+  background: linear-gradient(135deg, #7B1147 0%, #C9963D 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -82,26 +85,31 @@
 
 /* Glass morphism effect */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(253, 246, 227, 0.85);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(201, 150, 61, 0.2);
 }
 
 /* Category badge */
 .category-badge {
-  @apply inline-block px-4 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-pink-100 to-rose-100 text-pink-700;
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #FDF6E3, #E8C97A);
+  color: #4A0A2E;
 }
 
 /* Loading spinner */
 .spinner {
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #ec4899;
+  border: 3px solid #FDF6E3;
+  border-top: 3px solid #C9963D;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   animation: spin 1s linear infinite;
 }
-
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
