@@ -390,6 +390,8 @@ const OrdersManagement = () => {
               <th className="px-6 py-3 text-left">Order #</th>
               <th className="px-6 py-3 text-left">Customer</th>
               <th className="px-6 py-3 text-left">Phone</th>
+              <th className="px-6 py-3 text-left">Delivery Address</th>
+              <th className="px-6 py-3 text-left">Order Notes</th>
               <th className="px-6 py-3 text-left">Total</th>
               <th className="px-6 py-3 text-left">Status</th>
               <th className="px-6 py-3 text-left">Actions</th>
@@ -401,6 +403,8 @@ const OrdersManagement = () => {
                 <td className="px-6 py-4 font-mono">{order.order_number}</td>
                 <td className="px-6 py-4">{order.customer_name}</td>
                 <td className="px-6 py-4">{order.phone}</td>
+                <td className="px-6 py-4">{order.address}</td>
+                <td className="px-6 py-4">{order.notes || '—'}</td>
                 <td className="px-6 py-4 font-bold">₹{order.total}</td>
                 <td className="px-6 py-4">
                   <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
