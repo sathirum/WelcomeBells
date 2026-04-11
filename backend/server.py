@@ -18,18 +18,23 @@ import io
 import base64
 from enum import Enum
 import shutil
+import cloudinary
+import cloudinary.uploader
 
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
+# Cloudinary configuration
+cloudinary.config(
+    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    api_key=os.environ.get('CLOUDINARY_API_KEY'),
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET')
+)
+
 # MongoDB connection
 mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(
-    mongo_url,
-    tls=True,
-    tlsAllowInvalidCertificates=True
-)
+client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
 # JWT Configuration
@@ -38,7 +43,7 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 1440  # 24 hours
 
 # Upload directory
-UPLOAD_DIR = Path(__file__).parent.parent / "frontend" / "public" / "uploads"
+UPLOAD_DIR = Path("/app/frontend/public/uploads")
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 # Create the main app
@@ -213,10 +218,6 @@ class Settings(BaseModel):
     address: str = "Chennai, Tamil Nadu"
     whatsapp_number: str = "+917904067684"
     about_us: str = "Welcome to Welcome Bells - Your trusted partner for Trousseau Packing, Gift Hampers, and more!"
-    tile_trousseau: Optional[str] = None
-    tile_gift_hampers: Optional[str] = None
-    tile_bouquets: Optional[str] = None
-    tile_return_gifts: Optional[str] = None
 
 
 class SettingsUpdate(BaseModel):
@@ -227,10 +228,6 @@ class SettingsUpdate(BaseModel):
     address: Optional[str] = None
     whatsapp_number: Optional[str] = None
     about_us: Optional[str] = None
-    tile_trousseau: Optional[str] = None
-    tile_gift_hampers: Optional[str] = None
-    tile_bouquets: Optional[str] = None
-    tile_return_gifts: Optional[str] = None
 
 
 class Admin(BaseModel):
@@ -516,24 +513,27 @@ async def admin_login(login: AdminLogin):
 # File Upload Endpoint
 @api_router.post("/admin/upload")
 async def upload_file(file: UploadFile = File(...), token_data: dict = Depends(verify_token)):
-    """Upload image or video file"""
+    """Upload image or video file to Cloudinary"""
     try:
-        # Generate unique filename
-        file_extension = Path(file.filename).suffix
-        unique_filename = f"{uuid.uuid4()}{file_extension}"
-        file_path = UPLOAD_DIR / unique_filename
+        # Read file contents
+        contents = await file.read()
         
-        # Save file
-        with open(file_path, "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
+        # Determine resource type
+        resource_type = "video" if file.content_type and file.content_type.startswith("video") else "image"
         
-        # Return URL that frontend can access
-        file_url = f"/uploads/{unique_filename}"
+        # Upload to Cloudinary
+        result = cloudinary.uploader.upload(
+            contents,
+            folder="welcomebells",
+            resource_type=resource_type
+        )
+        
+        file_url = result.get("secure_url")
         
         return {
             "success": True,
             "url": file_url,
-            "filename": unique_filename
+            "filename": result.get("public_id")
         }
     except Exception as e:
         logger.error(f"File upload error: {str(e)}")
