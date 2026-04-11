@@ -13,3 +13,4 @@ qrcode==8.2
 pillow==12.2.0
 requests==2.33.1
 starlette==0.37.2
+PyJWT==2.12.1
