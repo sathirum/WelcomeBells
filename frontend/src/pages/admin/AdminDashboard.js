@@ -389,6 +389,7 @@ const OrdersManagement = () => {
             <tr>
               <th className="px-6 py-3 text-left">Order #</th>
               <th className="px-6 py-3 text-left">Customer</th>
+              <th className="px-6 py-3 text-left">Phone</th>
               <th className="px-6 py-3 text-left">Total</th>
               <th className="px-6 py-3 text-left">Status</th>
               <th className="px-6 py-3 text-left">Actions</th>
@@ -399,6 +400,7 @@ const OrdersManagement = () => {
               <tr key={order.id} className="border-t">
                 <td className="px-6 py-4 font-mono">{order.order_number}</td>
                 <td className="px-6 py-4">{order.customer_name}</td>
+                <td className="px-6 py-4">{order.phone}</td>
                 <td className="px-6 py-4 font-bold">₹{order.total}</td>
                 <td className="px-6 py-4">
                   <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
@@ -469,6 +471,7 @@ const BookingsManagement = () => {
             <tr>
               <th className="px-6 py-3 text-left">Booking #</th>
               <th className="px-6 py-3 text-left">Customer</th>
+              <th className="px-6 py-3 text-left">Phone</th>
               <th className="px-6 py-3 text-left">Service</th>
               <th className="px-6 py-3 text-left">Date</th>
               <th className="px-6 py-3 text-left">Status</th>
@@ -480,6 +483,7 @@ const BookingsManagement = () => {
               <tr key={booking.id} className="border-t">
                 <td className="px-6 py-4 font-mono">{booking.booking_number}</td>
                 <td className="px-6 py-4">{booking.customer_name}</td>
+                <td className="px-6 py-4">{booking.phone}</td>
                 <td className="px-6 py-4">{booking.service.replace(/_/g, ' ')}</td>
                 <td className="px-6 py-4">{booking.date}</td>
                 <td className="px-6 py-4">
