@@ -42,9 +42,7 @@ SECRET_KEY = os.environ.get('JWT_SECRET_KEY', 'your-secret-key-change-in-product
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 1440  # 24 hours
 
-# Upload directory
-UPLOAD_DIR = Path("/app/frontend/public/uploads")
-UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+
 
 # Create the main app
 app = FastAPI()
