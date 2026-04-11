@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import { 
   LayoutDashboard, Package, ShoppingBag, Calendar, Image, Star, 
-  Settings, LogOut, Plus, Edit, Trash2, X 
+  Settings, LogOut, Plus, Edit, Trash2, X, Mail
 } from 'lucide-react';
 import axios from 'axios';
+import ContactMessages from './ContactMessages';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -945,6 +946,7 @@ const SettingsManagement = () => {
     }
   };
   
+  
   return (
     <div data-testid="settings-management">
       <h1 className="text-3xl font-bold mb-6">Business Settings</h1>
@@ -1069,6 +1071,7 @@ const AdminDashboard = () => {
     { path: '/admin/bookings', icon: Calendar, label: 'Bookings' },
     { path: '/admin/gallery', icon: Image, label: 'Gallery' },
     { path: '/admin/testimonials', icon: Star, label: 'Testimonials' },
+    { path: '/admin/messages', icon: Mail, label: 'Messages' },
     { path: '/admin/settings', icon: Settings, label: 'Settings' },
   ];
   
@@ -1129,6 +1132,7 @@ const AdminDashboard = () => {
           <Route path="bookings" element={<BookingsManagement />} />
           <Route path="gallery" element={<GalleryManagement />} />
           <Route path="testimonials" element={<TestimonialsManagement />} />
+          <Route path="messages" element={<ContactMessages />} />
           <Route path="settings" element={<SettingsManagement />} />
           <Route path="/" element={<DashboardHome />} />
         </Routes>

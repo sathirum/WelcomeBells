@@ -9,7 +9,7 @@ const Booking = () => {
   const [formData, setFormData] = useState({
     customer_name: '',
     phone: '',
-    email: '',
+    //email: '',
     service: 'trousseau_packing',
     date: '',
     notes: ''
@@ -65,7 +65,7 @@ const Booking = () => {
       setFormData({
         customer_name: '',
         phone: '',
-        email: '',
+        //email: '',
         service: 'trousseau_packing',
         date: '',
         notes: ''
@@ -160,21 +160,6 @@ const Booking = () => {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                 />
               </div>
-            </div>
-            
-            <div className="mb-6">
-              <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
-                Email (Optional)
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                data-testid="booking-email-input"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-              />
             </div>
             
             <div className="mb-6">

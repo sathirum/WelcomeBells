@@ -15,7 +15,7 @@ const Checkout = () => {
   const [formData, setFormData] = useState({
     customer_name: '',
     phone: '',
-    email: '',
+    //email: '',
     address: '',
     notes: ''
   });
@@ -208,21 +208,6 @@ const Checkout = () => {
                         onChange={handleChange}
                         required
                         data-testid="checkout-phone-input"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
-                        Email (Optional)
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        data-testid="checkout-email-input"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                       />
                     </div>

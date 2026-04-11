@@ -372,7 +372,12 @@ async def track_order(tracking_id: str):
     
     return order
 
-
+# Admin Contact Messages
+@api_router.get("/admin/contact-messages")
+async def get_contact_messages(token_data: dict = Depends(verify_token)):
+    messages = await db.contact_messages.find({}, {"_id": 0}).sort("created_at", -1).to_list(1000)
+    return messages
+    
 # Bookings
 @api_router.post("/bookings", response_model=Booking)
 async def create_booking(booking_input: BookingCreate):

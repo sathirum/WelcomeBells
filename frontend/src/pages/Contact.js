@@ -9,7 +9,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    email: '',
+    //email: '',
     message: ''
   });
   const [loading, setLoading] = useState(false);
@@ -26,7 +26,7 @@ const Contact = () => {
     try {
       await axios.post(`${API}/contact`, formData);
       setSuccess(true);
-      setFormData({ name: '', phone: '', email: '', message: '' });
+      setFormData({ name: '', phone: '', message: '' });
       setTimeout(() => setSuccess(false), 5000);
     } catch (error) {
       console.error('Error submitting contact form:', error);
@@ -154,20 +154,7 @@ const Contact = () => {
                 />
               </div>
               
-              <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
-                  Email (Optional)
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  data-testid="contact-email-input"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                />
-              </div>
+
               
               <div className="mb-6">
                 <label htmlFor="message" className="block text-gray-700 font-semibold mb-2">
