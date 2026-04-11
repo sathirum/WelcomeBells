@@ -34,7 +34,7 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 1440  # 24 hours
 
 # Upload directory
-UPLOAD_DIR = Path("/app/frontend/public/uploads")
+UPLOAD_DIR = Path(__file__).parent.parent / "frontend" / "public" / "uploads"
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 # Create the main app
