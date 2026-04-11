@@ -56,8 +56,18 @@ const About = () => {
             </div>
           </div>
           
-          <div className="order-1 lg:order-2">
-            <div className="aspect-square bg-gradient-to-br from-pink-300 to-rose-300 rounded-3xl shadow-2xl"></div>
+          <div className="order-1 lg:order-2 flex justify-center">
+            <div className="bg-gradient-to-br from-maroon-400 to-maroon-500 rounded-3xl shadow-2xl overflow-hidden p-3 w-64 md:w-72" style={{aspectRatio: '9/16'}}>
+              <video
+                className="w-full h-full object-cover rounded-2xl"
+                autoPlay
+                loop
+                playsInline
+                controls
+              >
+              <source src="/uploads/About.mp4" type="video/mp4" />
+              </video>
+            </div>
           </div>
         </div>
         
@@ -69,7 +79,7 @@ const About = () => {
               const Icon = feature.icon;
               return (
                 <div key={index} className="text-center p-6 glass rounded-2xl" data-testid={`feature-${index}`}>
-                  <div className="bg-gradient-to-r from-pink-500 to-rose-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="bg-gradient-to-r from-maroon-500 to-maroon-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Icon size={32} className="text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-gray-800">{feature.title}</h3>
@@ -81,7 +91,7 @@ const About = () => {
         </div>
         
         {/* Services Overview */}
-        <div className="bg-gradient-to-r from-pink-500 to-rose-500 rounded-3xl p-12 text-white text-center">
+        <div className="bg-gradient-to-r from-maroon-500 to-maroon-600 rounded-3xl p-12 text-white text-center">
           <h2 className="text-3xl font-bold mb-6">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
             <div className="bg-white bg-opacity-20 rounded-xl p-4 backdrop-blur-sm">

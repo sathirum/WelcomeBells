@@ -47,15 +47,15 @@ const Cart = () => {
               <div key={item.id} className="bg-white rounded-2xl shadow-lg p-6" data-testid={`cart-item-${item.id}`}>
                 <div className="flex items-center space-x-4">
                   {/* Product Image */}
-                  <div className="w-24 h-24 bg-gradient-to-br from-pink-200 to-rose-200 rounded-lg flex-shrink-0"></div>
+                  <div className="w-24 h-24 bg-gradient-to-br from-gold-100 to-gold-200 rounded-lg flex-shrink-0"></div>
                   
                   {/* Product Info */}
                   <div className="flex-grow">
-                    <Link to={`/products/${item.id}`} className="hover:text-pink-600">
+                    <Link to={`/products/${item.id}`} className="hover:text-maroon-600">
                       <h3 className="font-bold text-lg mb-1" data-testid="cart-item-name">{item.name}</h3>
                     </Link>
                     <p className="text-sm text-gray-500 mb-2">{item.category?.replace(/_/g, ' ')}</p>
-                    <p className="text-xl font-bold text-pink-600" data-testid="cart-item-price">₹{item.price}</p>
+                    <p className="text-xl font-bold text-maroon-600" data-testid="cart-item-price">₹{item.price}</p>
                   </div>
                   
                   {/* Quantity Controls */}
@@ -113,7 +113,7 @@ const Cart = () => {
                 <div className="border-t border-gray-300 pt-3">
                   <div className="flex justify-between text-lg font-bold">
                     <span>Total</span>
-                    <span className="text-pink-600" data-testid="cart-total">₹{getCartTotal().toFixed(2)}</span>
+                    <span className="text-maroon-600" data-testid="cart-total">₹{getCartTotal().toFixed(2)}</span>
                   </div>
                 </div>
               </div>
@@ -121,14 +121,14 @@ const Cart = () => {
               <button
                 onClick={() => navigate('/checkout')}
                 data-testid="proceed-to-checkout-button"
-                className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-4 px-6 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300 shadow-lg mb-3"
+                className="w-full bg-gradient-to-r from-maroon-500 to-maroon-600 hover:from-maroon-600 hover:to-maroon-700 text-white font-bold py-4 px-6 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300 shadow-lg mb-3"
               >
                 <span>Proceed to Checkout</span>
                 <ArrowRight size={20} />
               </button>
               
               <Link to="/products">
-                <button className="w-full bg-white text-pink-600 border-2 border-pink-500 hover:bg-pink-50 font-semibold py-3 px-6 rounded-lg transition-all duration-300">
+                <button className="w-full bg-white text-maroon-600 border-2 border-gold-400 hover:bg-gold-100 font-semibold py-3 px-6 rounded-lg transition-all duration-300">
                   Continue Shopping
                 </button>
               </Link>

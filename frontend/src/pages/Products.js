@@ -92,8 +92,8 @@ const Products = () => {
               data-testid={`filter-${category.value}`}
               className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                 selectedCategory === category.value
-                  ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg'
-                  : 'bg-white text-gray-700 hover:bg-pink-50 border border-gray-200'
+                  ? 'bg-gradient-to-r from-maroon-500 to-maroon-600 text-white shadow-lg'
+                  : 'bg-white text-gray-700 hover:bg-gold-100 border border-gray-200'
               }`}
             >
               {category.label}
@@ -112,7 +112,7 @@ const Products = () => {
             {filteredProducts.map((product) => (
               <div key={product.id} className="product-card bg-white rounded-2xl shadow-lg overflow-hidden" data-testid={`product-card-${product.id}`}>
                 <Link to={`/products/${product.id}`}>
-                  <div className="aspect-square bg-gradient-to-br from-pink-200 to-rose-200 relative overflow-hidden">
+                  <div className="aspect-square bg-gradient-to-br from-gold-100 to-gold-200 relative overflow-hidden">
                     {product.images && product.images.length > 0 ? (
                       <img 
                         src={product.images[0]} 
@@ -133,19 +133,19 @@ const Products = () => {
                 <div className="p-5">
                   <Link to={`/products/${product.id}`}>
                     <span className="category-badge">{product.category.replace(/_/g, ' ')}</span>
-                    <h3 className="text-lg font-bold mt-2 mb-2 hover:text-pink-600 transition-colors" data-testid="product-name">
+                    <h3 className="text-lg font-bold mt-2 mb-2 hover:text-maroon-600 transition-colors" data-testid="product-name">
                       {product.name}
                     </h3>
                     <p className="text-gray-600 text-sm mb-3 line-clamp-2">{product.description}</p>
                   </Link>
                   <div className="flex items-center justify-between">
-                    <p className="text-2xl font-bold text-pink-600" data-testid="product-price">
+                    <p className="text-2xl font-bold text-maroon-600" data-testid="product-price">
                       ₹{product.price}
                     </p>
                     <button
                       onClick={(e) => handleAddToCart(product, e)}
                       data-testid={`add-to-cart-${product.id}`}
-                      className="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-all duration-300"
+                      className="bg-gradient-to-r from-maroon-500 to-maroon-600 hover:from-maroon-600 hover:to-maroon-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-all duration-300"
                     >
                       <ShoppingCart size={18} />
                       <span>Add</span>

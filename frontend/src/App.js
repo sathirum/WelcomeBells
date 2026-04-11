@@ -25,7 +25,7 @@ function App() {
   return (
     <CartProvider>
       <BrowserRouter>
-        <div className="App min-h-screen bg-gradient-to-br from-pink-50 via-white to-rose-50">
+        <div className="App min-h-screen bg-gradient-to-br from-gold-100 via-white to-gold-100">
           <Routes>
             {/* Public Routes */}
             <Route path="/" element={<><Navbar /><Home /><Footer /></>} />

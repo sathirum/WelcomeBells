@@ -38,7 +38,7 @@ const AdminLogin = () => {
   };
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-rose-50 flex items-center justify-center py-12 px-4" data-testid="admin-login-page">
+    <div className="min-h-screen bg-gradient-to-br from-gold-100 via-white to-gold-100 flex items-center justify-center py-12 px-4" data-testid="admin-login-page">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
           <div className="mx-auto mb-4 flex justify-center">
@@ -74,7 +74,7 @@ const AdminLogin = () => {
                   onChange={handleChange}
                   required
                   data-testid="username-input"
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
                   placeholder="Enter username"
                 />
               </div>
@@ -94,7 +94,7 @@ const AdminLogin = () => {
                   onChange={handleChange}
                   required
                   data-testid="password-input"
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
                   placeholder="Enter password"
                 />
               </div>
@@ -104,7 +104,7 @@ const AdminLogin = () => {
               type="submit"
               disabled={loading}
               data-testid="login-submit-button"
-              className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg disabled:opacity-50"
+              className="w-full bg-gradient-to-r from-maroon-500 to-maroon-600 hover:from-maroon-600 hover:to-maroon-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg disabled:opacity-50"
             >
               {loading ? 'Logging in...' : 'Login'}
             </button>
@@ -122,7 +122,7 @@ const AdminLogin = () => {
         <div className="text-center mt-6">
           <button
             onClick={() => navigate('/')}
-            className="text-gray-600 hover:text-pink-600 transition-colors"
+            className="text-gray-600 hover:text-maroon-600 transition-colors"
           >
             ← Back to Website
           </button>

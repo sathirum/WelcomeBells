@@ -40,14 +40,14 @@ const ContactMessages = () => {
             <div key={msg.id} className="bg-white rounded-2xl shadow p-6 border border-gray-100">
               <div className="flex flex-wrap gap-4 mb-3">
                 <span className="flex items-center gap-2 font-semibold text-gray-800">
-                  <User size={16} className="text-pink-500" /> {msg.name}
+                  <User size={16} className="text-maroon-500" /> {msg.name}
                 </span>
-                <a href={`tel:${msg.phone}`} className="flex items-center gap-2 text-gray-600 hover:text-pink-600">
-                  <Phone size={16} className="text-pink-500" /> {msg.phone}
+                <a href={`tel:${msg.phone}`} className="flex items-center gap-2 text-gray-600 hover:text-maroon-600">
+                  <Phone size={16} className="text-maroon-500" /> {msg.phone}
                 </a>
                 {msg.email && (
-                  <a href={`mailto:${msg.email}`} className="flex items-center gap-2 text-gray-600 hover:text-pink-600">
-                    <Mail size={16} className="text-pink-500" /> {msg.email}
+                  <a href={`mailto:${msg.email}`} className="flex items-center gap-2 text-gray-600 hover:text-maroon-600">
+                    <Mail size={16} className="text-maroon-500" /> {msg.email}
                   </a>
                 )}
                 <span className="flex items-center gap-2 text-gray-400 text-sm ml-auto">

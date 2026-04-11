@@ -88,8 +88,8 @@ const Gallery = () => {
                 data-testid={`type-filter-${type.value}`}
                 className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                   selectedType === type.value
-                    ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-pink-50 border border-gray-200'
+                    ? 'bg-gradient-to-r from-maroon-500 to-maroon-600 text-white shadow-lg'
+                    : 'bg-white text-gray-700 hover:bg-gold-100 border border-gray-200'
                 }`}
               >
                 {type.label}
@@ -107,8 +107,8 @@ const Gallery = () => {
                 data-testid={`category-filter-${category.value}`}
                 className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                   selectedCategory === category.value
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-purple-50 border border-gray-200'
+                    ? 'bg-gradient-to-r from-maroon-500 to-maroon-600 text-white shadow-lg'
+                    : 'bg-white text-gray-700 hover:bg-gold-100 border border-gray-200'
                 }`}
               >
                 {category.label}
@@ -126,7 +126,7 @@ const Gallery = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-testid="gallery-grid">
             {filteredGallery.map((item) => (
-              <div key={item.id} className="group relative aspect-square bg-gradient-to-br from-pink-200 to-rose-200 rounded-2xl shadow-lg overflow-hidden cursor-pointer" data-testid={`gallery-item-${item.id}`}>
+              <div key={item.id} className="group relative aspect-square bg-gradient-to-br from-gold-100 to-gold-200 rounded-2xl shadow-lg overflow-hidden cursor-pointer" data-testid={`gallery-item-${item.id}`}>
                 {/* Display Image or Video */}
                 {item.type === 'image' ? (
                   <img 
@@ -155,7 +155,7 @@ const Gallery = () => {
                 {item.type === 'video' && (
                   <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
                     <div className="bg-white bg-opacity-80 rounded-full p-4 group-hover:bg-opacity-100 transition-all">
-                      <Play size={32} className="text-pink-600" />
+                      <Play size={32} className="text-maroon-600" />
                     </div>
                   </div>
                 )}

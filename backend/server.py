@@ -209,6 +209,10 @@ class Settings(BaseModel):
     address: str = "Chennai, Tamil Nadu"
     whatsapp_number: str = "+917904067684"
     about_us: str = "Welcome to Welcome Bells - Your trusted partner for Trousseau Packing, Gift Hampers, and more!"
+    tile_trousseau: Optional[str] = None
+    tile_gift_hampers: Optional[str] = None
+    tile_bouquets: Optional[str] = None
+    tile_return_gifts: Optional[str] = None
 
 
 class SettingsUpdate(BaseModel):
@@ -219,6 +223,10 @@ class SettingsUpdate(BaseModel):
     address: Optional[str] = None
     whatsapp_number: Optional[str] = None
     about_us: Optional[str] = None
+    tile_trousseau: Optional[str] = None
+    tile_gift_hampers: Optional[str] = None
+    tile_bouquets: Optional[str] = None
+    tile_return_gifts: Optional[str] = None
 
 
 class Admin(BaseModel):

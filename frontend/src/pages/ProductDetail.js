@@ -62,7 +62,7 @@ const ProductDetail = () => {
         <button
           onClick={() => navigate('/products')}
           data-testid="back-button"
-          className="flex items-center space-x-2 text-gray-600 hover:text-pink-600 mb-8 transition-colors"
+          className="flex items-center space-x-2 text-gray-600 hover:text-maroon-600 mb-8 transition-colors"
         >
           <ArrowLeft size={20} />
           <span>Back to Products</span>
@@ -71,7 +71,7 @@ const ProductDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Image */}
           <div>
-            <div className="aspect-square bg-gradient-to-br from-pink-200 to-rose-200 rounded-3xl shadow-2xl overflow-hidden">
+            <div className="aspect-square bg-gradient-to-br from-gold-100 to-gold-200 rounded-3xl shadow-2xl overflow-hidden">
               {product.images && product.images.length > 0 ? (
                 <img 
                   src={product.images[0]} 
@@ -93,7 +93,7 @@ const ProductDetail = () => {
             <h1 className="text-4xl font-bold mt-4 mb-4 text-gray-800" data-testid="product-detail-name">
               {product.name}
             </h1>
-            <p className="text-4xl font-bold text-pink-600 mb-6" data-testid="product-detail-price">
+            <p className="text-4xl font-bold text-maroon-600 mb-6" data-testid="product-detail-price">
               ₹{product.price}
             </p>
             
@@ -148,7 +148,7 @@ const ProductDetail = () => {
                 <button
                   onClick={handleAddToCart}
                   data-testid="add-to-cart-detail"
-                  className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-4 px-6 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300 shadow-lg"
+                  className="w-full bg-gradient-to-r from-maroon-500 to-maroon-600 hover:from-maroon-600 hover:to-maroon-700 text-white font-bold py-4 px-6 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300 shadow-lg"
                 >
                   <ShoppingCart size={24} />
                   <span>Add to Cart</span>

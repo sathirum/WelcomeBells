@@ -141,7 +141,7 @@ const Booking = () => {
                   onChange={handleChange}
                   required
                   data-testid="booking-name-input"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
                 />
               </div>
               
@@ -157,7 +157,7 @@ const Booking = () => {
                   onChange={handleChange}
                   required
                   data-testid="booking-phone-input"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
                 />
               </div>
             </div>
@@ -173,7 +173,7 @@ const Booking = () => {
                 onChange={handleChange}
                 required
                 data-testid="booking-service-select"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
               >
                 {services.map((service) => (
                   <option key={service.value} value={service.value}>
@@ -197,7 +197,7 @@ const Booking = () => {
                   min={getMinDate()}
                   required
                   data-testid="booking-date-input"
-                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
                 />
                 <Calendar className="absolute right-3 top-3 text-gray-400 pointer-events-none" size={24} />
               </div>
@@ -218,7 +218,7 @@ const Booking = () => {
                 rows="4"
                 data-testid="booking-notes-input"
                 placeholder="Any special requirements or preferences..."
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
               ></textarea>
             </div>
             
@@ -226,7 +226,7 @@ const Booking = () => {
               type="submit"
               disabled={loading || (formData.date && isDateBooked(formData.date))}
               data-testid="booking-submit-button"
-              className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-maroon-500 to-maroon-600 hover:from-maroon-600 hover:to-maroon-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? 'Processing...' : 'Confirm Booking'}
             </button>

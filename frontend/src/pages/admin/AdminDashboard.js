@@ -39,7 +39,7 @@ const DashboardHome = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-white p-6 rounded-xl shadow-lg">
             <p className="text-gray-600 mb-2">Total Products</p>
-            <p className="text-4xl font-bold text-pink-600">{stats.total_products}</p>
+            <p className="text-4xl font-bold text-maroon-600">{stats.total_products}</p>
           </div>
           <div className="bg-white p-6 rounded-xl shadow-lg">
             <p className="text-gray-600 mb-2">Total Orders</p>
@@ -187,7 +187,7 @@ const ProductsManagement = () => {
         <button
           onClick={() => setShowForm(true)}
           data-testid="add-product-button"
-          className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-4 py-2 rounded-lg flex items-center space-x-2"
+          className="bg-gradient-to-r from-maroon-500 to-maroon-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2"
         >
           <Plus size={20} />
           <span>Add Product</span>
@@ -295,7 +295,7 @@ const ProductsManagement = () => {
                 </div>
               </div>
               <div className="mt-6 flex space-x-4">
-                <button type="submit" disabled={uploading} className="flex-1 bg-pink-600 text-white py-3 rounded-lg font-bold disabled:opacity-50">
+                <button type="submit" disabled={uploading} className="flex-1 bg-maroon-600 text-white py-3 rounded-lg font-bold disabled:opacity-50">
                   {uploading ? 'Uploading...' : editingProduct ? 'Update Product' : 'Create Product'}
                 </button>
                 <button type="button" onClick={resetForm} className="flex-1 bg-gray-300 py-3 rounded-lg font-bold">
@@ -327,7 +327,7 @@ const ProductsManagement = () => {
                   {product.images && product.images.length > 0 ? (
                     <img src={product.images[0]} alt={product.name} className="w-16 h-16 object-cover rounded-lg" />
                   ) : (
-                    <div className="w-16 h-16 bg-gradient-to-br from-pink-200 to-rose-200 rounded-lg"></div>
+                    <div className="w-16 h-16 bg-gradient-to-br from-gold-100 to-gold-200 rounded-lg"></div>
                   )}
                 </td>
                 <td className="px-6 py-4 font-semibold">{product.name}</td>
@@ -606,7 +606,7 @@ const GalleryManagement = () => {
         <button
           onClick={() => setShowForm(true)}
           data-testid="add-gallery-button"
-          className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-4 py-2 rounded-lg flex items-center space-x-2"
+          className="bg-gradient-to-r from-maroon-500 to-maroon-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2"
         >
           <Plus size={20} />
           <span>Add Media</span>
@@ -686,7 +686,7 @@ const GalleryManagement = () => {
                 </div>
               </div>
               <div className="mt-6 flex space-x-4">
-                <button type="submit" disabled={uploading} className="flex-1 bg-pink-600 text-white py-3 rounded-lg font-bold disabled:opacity-50">
+                <button type="submit" disabled={uploading} className="flex-1 bg-maroon-600 text-white py-3 rounded-lg font-bold disabled:opacity-50">
                   {uploading ? 'Uploading...' : 'Add to Gallery'}
                 </button>
                 <button type="button" onClick={resetForm} className="flex-1 bg-gray-300 py-3 rounded-lg font-bold">
@@ -701,7 +701,7 @@ const GalleryManagement = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {gallery.map(item => (
           <div key={item.id} className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <div className="aspect-square bg-gradient-to-br from-pink-200 to-rose-200 relative overflow-hidden">
+            <div className="aspect-square bg-gradient-to-br from-gold-100 to-gold-200 relative overflow-hidden">
               {item.type === 'image' ? (
                 <img 
                   src={item.url} 
@@ -723,7 +723,7 @@ const GalleryManagement = () => {
               {item.type === 'video' && (
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="bg-white bg-opacity-80 rounded-full p-3">
-                    <Image size={32} className="text-pink-600" />
+                    <Image size={32} className="text-maroon-600" />
                   </div>
                 </div>
               )}
@@ -732,7 +732,7 @@ const GalleryManagement = () => {
               <p className="font-semibold text-sm mb-1">{item.title || 'Untitled'}</p>
               <p className="text-xs text-gray-500 mb-2">{item.type}</p>
               {item.category && (
-                <span className="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full">
+                <span className="text-xs bg-gold-100 text-maroon-600 px-2 py-1 rounded-full">
                   {item.category.replace(/_/g, ' ')}
                 </span>
               )}
@@ -819,7 +819,7 @@ const TestimonialsManagement = () => {
         <h1 className="text-3xl font-bold">Testimonials Management</h1>
         <button
           onClick={() => setShowForm(true)}
-          className="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-4 py-2 rounded-lg flex items-center space-x-2"
+          className="bg-gradient-to-r from-maroon-500 to-maroon-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2"
         >
           <Plus size={20} />
           <span>Add Testimonial</span>
@@ -871,7 +871,7 @@ const TestimonialsManagement = () => {
                 </div>
               </div>
               <div className="mt-6 flex space-x-4">
-                <button type="submit" className="flex-1 bg-pink-600 text-white py-3 rounded-lg font-bold">
+                <button type="submit" className="flex-1 bg-maroon-600 text-white py-3 rounded-lg font-bold">
                   Add Testimonial
                 </button>
                 <button type="button" onClick={resetForm} className="flex-1 bg-gray-300 py-3 rounded-lg font-bold">
@@ -892,7 +892,7 @@ const TestimonialsManagement = () => {
               ))}
             </div>
             <p className="text-gray-700 mb-4 italic">"{testimonial.review}"</p>
-            <p className="font-semibold text-pink-600 mb-4">- {testimonial.customer_name}</p>
+            <p className="font-semibold text-maroon-600 mb-4">- {testimonial.customer_name}</p>
             <button
               onClick={() => handleDelete(testimonial.id)}
               className="w-full bg-red-100 text-red-600 hover:bg-red-200 py-2 rounded-lg text-sm font-semibold flex items-center justify-center space-x-1"
@@ -908,6 +908,104 @@ const TestimonialsManagement = () => {
 };
 
 // Settings Management
+const HomeTilesManagement = () => {
+  const [tiles, setTiles] = useState({
+    tile_trousseau: null,
+    tile_gift_hampers: null,
+    tile_bouquets: null,
+    tile_return_gifts: null,
+  });
+  const [uploading, setUploading] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  const tileConfig = [
+    { key: 'tile_trousseau', label: 'Trousseau Packing' },
+    { key: 'tile_gift_hampers', label: 'Gift Hampers' },
+    { key: 'tile_bouquets', label: 'Bouquets' },
+    { key: 'tile_return_gifts', label: 'Return Gifts' },
+  ];
+
+  useEffect(() => {
+    fetchTiles();
+  }, []);
+
+  const fetchTiles = async () => {
+    try {
+      const response = await axios.get(`${API}/settings/public`);
+      const s = response.data;
+      setTiles({
+        tile_trousseau: s.tile_trousseau || null,
+        tile_gift_hampers: s.tile_gift_hampers || null,
+        tile_bouquets: s.tile_bouquets || null,
+        tile_return_gifts: s.tile_return_gifts || null,
+      });
+    } catch (error) {
+      console.error('Error fetching tile images:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleUpload = async (key, file) => {
+    if (!file) return;
+    setUploading(prev => ({ ...prev, [key]: true }));
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      const uploadRes = await axios.post(`${API}/admin/upload`, formData, {
+        ...getAuthHeaders(),
+        headers: { ...getAuthHeaders().headers, 'Content-Type': 'multipart/form-data' }
+      });
+      const url = uploadRes.data.url;
+      await axios.put(`${API}/admin/settings`, { [key]: url }, getAuthHeaders());
+      setTiles(prev => ({ ...prev, [key]: url }));
+      alert('Image updated successfully!');
+    } catch (error) {
+      console.error('Upload error:', error);
+      alert('Upload failed. Please try again.');
+    } finally {
+      setUploading(prev => ({ ...prev, [key]: false }));
+    }
+  };
+
+  if (loading) return <div className="text-center py-12">Loading...</div>;
+
+  return (
+    <div>
+      <h1 className="text-3xl font-bold mb-2">Home Tiles</h1>
+      <p className="text-gray-500 mb-8">Upload images for the 4 service tiles on the Home page.</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {tileConfig.map(({ key, label }) => (
+          <div key={key} className="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div className="aspect-square bg-gradient-to-br from-gold-100 to-gold-200 relative">
+              {tiles[key] ? (
+                <img src={tiles[key]} alt={label} className="w-full h-full object-cover" />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">No image</div>
+              )}
+            </div>
+            <div className="p-4">
+              <p className="font-semibold text-gray-800 mb-3">{label}</p>
+              <label className="block w-full cursor-pointer">
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => handleUpload(key, e.target.files[0])}
+                  disabled={uploading[key]}
+                />
+                <span className="block text-center w-full py-2 rounded-lg bg-maroon-500 text-white text-sm font-semibold hover:bg-maroon-600 transition-colors">
+                  {uploading[key] ? 'Uploading...' : tiles[key] ? 'Replace Image' : 'Upload Image'}
+                </span>
+              </label>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const SettingsManagement = () => {
   const [settings, setSettings] = useState(null);
   const [formData, setFormData] = useState({
@@ -1031,7 +1129,7 @@ const SettingsManagement = () => {
           
           <button
             type="submit"
-            className="mt-6 w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold py-3 rounded-lg"
+            className="mt-6 w-full bg-gradient-to-r from-maroon-500 to-maroon-600 text-white font-bold py-3 rounded-lg"
           >
             Save Settings
           </button>
@@ -1072,13 +1170,14 @@ const AdminDashboard = () => {
     { path: '/admin/gallery', icon: Image, label: 'Gallery' },
     { path: '/admin/testimonials', icon: Star, label: 'Testimonials' },
     { path: '/admin/messages', icon: Mail, label: 'Messages' },
+    { path: '/admin/hometiles', icon: Image, label: 'Home Tiles' },
     { path: '/admin/settings', icon: Settings, label: 'Settings' },
   ];
   
   return (
     <div className="min-h-screen bg-gray-50 flex" data-testid="admin-dashboard">
       {/* Sidebar */}
-      <div className="w-64 bg-gradient-to-br from-pink-600 to-rose-600 text-white">
+      <div className="w-64 bg-gradient-to-br from-maroon-600 to-maroon-700 text-white">
         <div className="p-6">
           <div className="mb-8">
             <img 
@@ -1099,7 +1198,7 @@ const AdminDashboard = () => {
                   key={item.path}
                   to={item.path}
                   className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all ${
-                    isActive ? 'bg-white text-pink-600' : 'hover:bg-white hover:bg-opacity-10'
+                    isActive ? 'bg-white text-maroon-600' : 'hover:bg-white hover:bg-opacity-10'
                   }`}
                 >
                   <Icon size={20} />
@@ -1123,7 +1222,7 @@ const AdminDashboard = () => {
       {/* Main Content */}
       <div className="flex-1 p-8">
         <div className="mb-6">
-          <p className="text-gray-600">Welcome back, <span className="font-semibold text-pink-600">{username}</span></p>
+          <p className="text-gray-600">Welcome back, <span className="font-semibold text-maroon-600">{username}</span></p>
         </div>
         
         <Routes>
@@ -1134,6 +1233,7 @@ const AdminDashboard = () => {
           <Route path="gallery" element={<GalleryManagement />} />
           <Route path="testimonials" element={<TestimonialsManagement />} />
           <Route path="messages" element={<ContactMessages />} />
+          <Route path="hometiles" element={<HomeTilesManagement />} />
           <Route path="settings" element={<SettingsManagement />} />
           <Route path="/" element={<DashboardHome />} />
         </Routes>

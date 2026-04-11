@@ -55,31 +55,31 @@ const Contact = () => {
             
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="bg-gradient-to-r from-pink-500 to-rose-500 p-3 rounded-xl">
+                <div className="bg-gradient-to-r from-maroon-500 to-maroon-600 p-3 rounded-xl">
                   <Phone size={24} className="text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-1">Phone</h3>
-                  <a href="tel:+917904067684" className="text-gray-600 hover:text-pink-600" data-testid="contact-phone">
+                  <a href="tel:+917904067684" className="text-gray-600 hover:text-maroon-600" data-testid="contact-phone">
                     +91 79040 67684
                   </a>
                 </div>
               </div>
               
               <div className="flex items-start space-x-4">
-                <div className="bg-gradient-to-r from-pink-500 to-rose-500 p-3 rounded-xl">
+                <div className="bg-gradient-to-r from-maroon-500 to-maroon-600 p-3 rounded-xl">
                   <Mail size={24} className="text-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-1">Email</h3>
-                  <a href="mailto:info@welcomebells.com" className="text-gray-600 hover:text-pink-600" data-testid="contact-email">
+                  <a href="mailto:info@welcomebells.com" className="text-gray-600 hover:text-maroon-600" data-testid="contact-email">
                     info@welcomebells.com
                   </a>
                 </div>
               </div>
               
               <div className="flex items-start space-x-4">
-                <div className="bg-gradient-to-r from-pink-500 to-rose-500 p-3 rounded-xl">
+                <div className="bg-gradient-to-r from-maroon-500 to-maroon-600 p-3 rounded-xl">
                   <MapPin size={24} className="text-white" />
                 </div>
                 <div>
@@ -104,7 +104,7 @@ const Contact = () => {
               <a
                 href="tel:+917904067684"
                 data-testid="call-button"
-                className="block w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold py-4 px-6 rounded-xl text-center transition-all duration-300 shadow-lg"
+                className="block w-full bg-gradient-to-r from-maroon-500 to-maroon-600 hover:from-maroon-600 hover:to-maroon-700 text-white font-semibold py-4 px-6 rounded-xl text-center transition-all duration-300 shadow-lg"
               >
                 Call Now
               </a>
@@ -134,7 +134,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   data-testid="contact-name-input"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
                 />
               </div>
               
@@ -150,7 +150,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   data-testid="contact-phone-input"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
                 />
               </div>
               
@@ -168,7 +168,7 @@ const Contact = () => {
                   required
                   rows="4"
                   data-testid="contact-message-input"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
                 ></textarea>
               </div>
               
@@ -176,7 +176,7 @@ const Contact = () => {
                 type="submit"
                 disabled={loading}
                 data-testid="contact-submit-button"
-                className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold py-4 px-6 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300 shadow-lg disabled:opacity-50"
+                className="w-full bg-gradient-to-r from-maroon-500 to-maroon-600 hover:from-maroon-600 hover:to-maroon-700 text-white font-semibold py-4 px-6 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300 shadow-lg disabled:opacity-50"
               >
                 {loading ? (
                   <div className="spinner"></div>

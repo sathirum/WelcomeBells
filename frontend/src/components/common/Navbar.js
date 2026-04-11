@@ -17,6 +17,7 @@ const Navbar = () => {
     { name: 'About', path: '/about' },
     { name: 'Book Service', path: '/booking' },
     { name: 'Contact', path: '/contact' },
+    { name: 'Track Order', path: '/track-order' },
   ];
   
   const isActive = (path) => location.pathname === path;
@@ -31,7 +32,7 @@ const Navbar = () => {
               //src="https://customer-assets.emergentagent.com/job_welcome-bells/artifacts/ug291yyv_image.png" 
               src="/logo.png"
               alt="Welcome Bells Logo" 
-              className="h-24 w-auto object-contain"
+              className="h-20 w-auto object-contain"
             />
           </Link>
           
@@ -44,8 +45,8 @@ const Navbar = () => {
                 data-testid={`nav-link-${link.name.toLowerCase().replace(' ', '-')}`}
                 className={`font-medium transition-all duration-300 ${
                   isActive(link.path)
-                    ? 'text-pink-600 border-b-2 border-pink-600'
-                    : 'text-gray-700 hover:text-pink-600'
+                    ? 'text-maroon-600 border-b-2 border-maroon-600'
+                    : 'text-gray-700 hover:text-maroon-600'
                 }`}
               >
                 {link.name}
@@ -56,11 +57,11 @@ const Navbar = () => {
             <Link
               to="/cart"
               data-testid="nav-cart-button"
-              className="relative p-2 text-gray-700 hover:text-pink-600 transition-colors"
+              className="relative p-2 text-gray-700 hover:text-maroon-600 transition-colors"
             >
               <ShoppingCart size={24} />
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center" data-testid="cart-count">
+                <span className="absolute -top-1 -right-1 bg-maroon-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center" data-testid="cart-count">
                   {cartCount}
                 </span>
               )}
@@ -84,7 +85,7 @@ const Navbar = () => {
             <Link to="/cart" className="relative p-2" data-testid="mobile-cart-button">
               <ShoppingCart size={24} className="text-gray-700" />
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-maroon-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                   {cartCount}
                 </span>
               )}
@@ -92,7 +93,7 @@ const Navbar = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               data-testid="mobile-menu-button"
-              className="text-gray-700 hover:text-pink-600"
+              className="text-gray-700 hover:text-maroon-600"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -109,7 +110,7 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                 className={`block py-3 px-4 rounded-lg mb-1 ${
                   isActive(link.path)
-                    ? 'bg-pink-100 text-pink-600 font-semibold'
+                    ? 'bg-gold-100 text-maroon-600 font-semibold'
                     : 'text-gray-700 hover:bg-gray-100'
                 }`}
               >

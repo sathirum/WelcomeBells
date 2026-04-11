@@ -69,13 +69,13 @@ const OrderTracking = () => {
               placeholder="Enter Tracking ID (e.g., AB12CD34)"
               required
               data-testid="tracking-id-input"
-              className="flex-grow px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+              className="flex-grow px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
             />
             <button
               type="submit"
               disabled={loading}
               data-testid="track-button"
-              className="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-3 px-8 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300 shadow-lg disabled:opacity-50"
+              className="bg-gradient-to-r from-maroon-500 to-maroon-600 hover:from-maroon-600 hover:to-maroon-700 text-white font-bold py-3 px-8 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300 shadow-lg disabled:opacity-50"
             >
               {loading ? (
                 <div className="spinner"></div>
@@ -117,7 +117,7 @@ const OrderTracking = () => {
                 </div>
                 <div>
                   <p className="text-gray-600 text-sm">Total Amount</p>
-                  <p className="font-bold text-pink-600" data-testid="order-total-display">₹{order.total}</p>
+                  <p className="font-bold text-maroon-600" data-testid="order-total-display">₹{order.total}</p>
                 </div>
               </div>
             </div>
@@ -133,20 +133,20 @@ const OrderTracking = () => {
                       <div className="relative">
                         <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                           step.completed
-                            ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white'
+                            ? 'bg-gradient-to-r from-maroon-500 to-maroon-600 text-white'
                             : 'bg-gray-300 text-gray-500'
                         }`}>
                           <Icon size={24} />
                         </div>
                         {index < getStatusSteps().length - 1 && (
                           <div className={`absolute left-6 top-12 w-0.5 h-16 ${
-                            step.completed ? 'bg-pink-500' : 'bg-gray-300'
+                            step.completed ? 'bg-maroon-500' : 'bg-gray-300'
                           }`}></div>
                         )}
                       </div>
                       <div className="ml-6 flex-grow">
                         <h3 className={`font-bold text-lg ${
-                          step.current ? 'text-pink-600' : step.completed ? 'text-gray-800' : 'text-gray-400'
+                          step.current ? 'text-maroon-600' : step.completed ? 'text-gray-800' : 'text-gray-400'
                         }`}>
                           {step.label}
                         </h3>
@@ -170,7 +170,7 @@ const OrderTracking = () => {
                       <p className="font-semibold">{item.product_name}</p>
                       <p className="text-sm text-gray-600">Quantity: {item.quantity}</p>
                     </div>
-                    <p className="font-bold text-pink-600">₹{(item.price * item.quantity).toFixed(2)}</p>
+                    <p className="font-bold text-maroon-600">₹{(item.price * item.quantity).toFixed(2)}</p>
                   </div>
                 ))}
               </div>

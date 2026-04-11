@@ -119,7 +119,7 @@ const Checkout = () => {
               </div>
               <div className="border-t border-gray-300 pt-3 flex justify-between">
                 <span className="text-gray-600">Total Amount:</span>
-                <span className="font-bold text-pink-600 text-xl">₹{getCartTotal().toFixed(2)}</span>
+                <span className="font-bold text-maroon-600 text-xl">₹{getCartTotal().toFixed(2)}</span>
               </div>
             </div>
           </div>
@@ -156,15 +156,15 @@ const Checkout = () => {
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold gradient-text mb-4" data-testid="checkout-title">Checkout</h1>
           <div className="flex justify-center items-center space-x-4">
-            <div className={`flex items-center ${step >= 1 ? 'text-pink-600' : 'text-gray-400'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${step >= 1 ? 'bg-pink-600 text-white' : 'bg-gray-300'}`}>
+            <div className={`flex items-center ${step >= 1 ? 'text-maroon-600' : 'text-gray-400'}`}>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${step >= 1 ? 'bg-maroon-600 text-white' : 'bg-gray-300'}`}>
                 1
               </div>
               <span className="ml-2 font-semibold">Details</span>
             </div>
             <div className="w-16 h-1 bg-gray-300"></div>
-            <div className={`flex items-center ${step >= 2 ? 'text-pink-600' : 'text-gray-400'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${step >= 2 ? 'bg-pink-600 text-white' : 'bg-gray-300'}`}>
+            <div className={`flex items-center ${step >= 2 ? 'text-maroon-600' : 'text-gray-400'}`}>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${step >= 2 ? 'bg-maroon-600 text-white' : 'bg-gray-300'}`}>
                 2
               </div>
               <span className="ml-2 font-semibold">Payment</span>
@@ -192,7 +192,7 @@ const Checkout = () => {
                         onChange={handleChange}
                         required
                         data-testid="checkout-name-input"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
                       />
                     </div>
                     
@@ -208,7 +208,7 @@ const Checkout = () => {
                         onChange={handleChange}
                         required
                         data-testid="checkout-phone-input"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
                       />
                     </div>
                     
@@ -224,7 +224,7 @@ const Checkout = () => {
                         required
                         rows="3"
                         data-testid="checkout-address-input"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
                       ></textarea>
                     </div>
                     
@@ -240,7 +240,7 @@ const Checkout = () => {
                         rows="3"
                         data-testid="checkout-notes-input"
                         placeholder="Any special instructions..."
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-maroon-500 focus:border-transparent"
                       ></textarea>
                     </div>
                   </div>
@@ -249,7 +249,7 @@ const Checkout = () => {
                     type="submit"
                     disabled={loading}
                     data-testid="proceed-to-payment-button"
-                    className="w-full mt-6 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg disabled:opacity-50"
+                    className="w-full mt-6 bg-gradient-to-r from-maroon-500 to-maroon-600 hover:from-maroon-600 hover:to-maroon-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg disabled:opacity-50"
                   >
                     {loading ? 'Processing...' : 'Proceed to Payment'}
                   </button>
@@ -272,7 +272,7 @@ const Checkout = () => {
                 <div className="border-t border-gray-300 pt-3">
                   <div className="flex justify-between text-lg font-bold">
                     <span>Total</span>
-                    <span className="text-pink-600">₹{getCartTotal().toFixed(2)}</span>
+                    <span className="text-maroon-600">₹{getCartTotal().toFixed(2)}</span>
                   </div>
                 </div>
               </div>
@@ -296,7 +296,7 @@ const Checkout = () => {
               
               <div className="mb-6">
                 <p className="text-gray-600 mb-2">Amount to Pay:</p>
-                <p className="text-3xl font-bold text-pink-600" data-testid="payment-amount">₹{qrData.amount.toFixed(2)}</p>
+                <p className="text-3xl font-bold text-maroon-600" data-testid="payment-amount">₹{qrData.amount.toFixed(2)}</p>
               </div>
               
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 text-left">
@@ -311,7 +311,7 @@ const Checkout = () => {
               <button
                 onClick={handlePaymentComplete}
                 data-testid="payment-complete-button"
-                className="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg"
+                className="w-full bg-gradient-to-r from-maroon-500 to-maroon-600 hover:from-maroon-600 hover:to-maroon-700 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg"
               >
                 I've Completed Payment
               </button>

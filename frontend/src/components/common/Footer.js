@@ -20,10 +20,10 @@ const Footer = () => {
               Creating beautiful memories with our premium trousseau packing, gift hampers, bouquets, and return gifts. Making every occasion special since our inception.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.instagram.com/welcome.bells" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400 transition-colors" data-testid="footer-instagram">
+              <a href="https://www.instagram.com/welcome.bells" target="_blank" rel="noopener noreferrer" className="hover:text-gold-400 transition-colors" data-testid="footer-instagram">
                 <Instagram size={24} />
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400 transition-colors" data-testid="footer-facebook">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-gold-400 transition-colors" data-testid="footer-facebook">
                 <Facebook size={24} />
               </a>
             </div>
@@ -33,12 +33,12 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-300 hover:text-pink-400 transition-colors">Home</Link></li>
-              <li><Link to="/products" className="text-gray-300 hover:text-pink-400 transition-colors">Products</Link></li>
-              <li><Link to="/gallery" className="text-gray-300 hover:text-pink-400 transition-colors">Gallery</Link></li>
-              <li><Link to="/about" className="text-gray-300 hover:text-pink-400 transition-colors">About Us</Link></li>
-              <li><Link to="/booking" className="text-gray-300 hover:text-pink-400 transition-colors">Book Service</Link></li>
-              <li><Link to="/track-order" className="text-gray-300 hover:text-pink-400 transition-colors">Track Order</Link></li>
+              <li><Link to="/" className="text-gray-300 hover:text-gold-400 transition-colors">Home</Link></li>
+              <li><Link to="/products" className="text-gray-300 hover:text-gold-400 transition-colors">Products</Link></li>
+              <li><Link to="/gallery" className="text-gray-300 hover:text-gold-400 transition-colors">Gallery</Link></li>
+              <li><Link to="/about" className="text-gray-300 hover:text-gold-400 transition-colors">About Us</Link></li>
+              <li><Link to="/booking" className="text-gray-300 hover:text-gold-400 transition-colors">Book Service</Link></li>
+              <li><Link to="/track-order" className="text-gray-300 hover:text-gold-400 transition-colors">Track Order</Link></li>
             </ul>
           </div>
           
@@ -49,7 +49,7 @@ const Footer = () => {
               <li className="flex items-start space-x-2">
                 <Phone size={18} className="mt-1 flex-shrink-0" />
                 <div>
-                  <a href="tel:+917904067684" className="hover:text-pink-400 transition-colors">
+                  <a href="tel:+917904067684" className="hover:text-gold-400 transition-colors">
                     +91 79040 67684
                   </a>
                 </div>
@@ -57,7 +57,7 @@ const Footer = () => {
               <li className="flex items-start space-x-2">
                 <Mail size={18} className="mt-1 flex-shrink-0" />
                 <div>
-                  <a href="mailto:info@welcomebells.com" className="hover:text-pink-400 transition-colors">
+                  <a href="mailto:info@welcomebells.com" className="hover:text-gold-400 transition-colors">
                     info@welcomebells.com
                   </a>
                 </div>
@@ -76,7 +76,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
           <p className="flex items-center justify-center space-x-2">
             <span>Made with</span>
-            <Heart size={16} className="text-pink-500 fill-current" />
+            <Heart size={16} className="text-maroon-500 fill-current" />
             <span>by Welcome Bells Team</span>
           </p>
           <p className="mt-2 text-sm">

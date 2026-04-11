@@ -53,35 +53,27 @@ module.exports = {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			},
-			maroon: {
-				400: '#7B1147',
-				500: '#7B1147',
-				600: '#4A0A2E',
-				700: '#4A0A2E',
-			},
-			gold: {
-				100: '#FDF6E3',
-				200: '#E8C97A',
-				400: '#C9963D',
-				500: '#C9963D',
-			}
+  			maroon: {
+  				400: '#7B1147',
+  				500: '#7B1147',
+  				600: '#4A0A2E',
+  				700: '#4A0A2E',
+  			},
+  			gold: {
+  				100: '#FDF6E3',
+  				200: '#E8C97A',
+  				400: '#C9963D',
+  				500: '#C9963D',
+  			}
   		},
   		keyframes: {
   			'accordion-down': {
-  				from: {
-  					height: '0'
-  				},
-  				to: {
-  					height: 'var(--radix-accordion-content-height)'
-  				}
+  				from: { height: '0' },
+  				to: { height: 'var(--radix-accordion-content-height)' }
   			},
   			'accordion-up': {
-  				from: {
-  					height: 'var(--radix-accordion-content-height)'
-  				},
-  				to: {
-  					height: '0'
-  				}
+  				from: { height: 'var(--radix-accordion-content-height)' },
+  				to: { height: '0' }
   			}
   		},
   		animation: {
